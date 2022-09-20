@@ -222,6 +222,15 @@ if __name__ == '__main__':
     open3d.geometry.PointCloud.estimate_normals(tgt_pcd)
     tgt_pcd.paint_uniform_color([0, 0.651, 0.929])
     open3d.visualization.draw_geometries([tgt_pcd] + box_list)
+    
+    # visual feature
+    import torch.nn as nn
+    Linear = nn.Linear(32, 3)
+    feat_3d = Linear(torch.tensor(tgt_data["features"]).float())
+    feat_3d = normal(feat_3d)
+    tgt_keypts.colors = open3d.utility.Vector3dVector(feat_3d.detach().numpy())
+    open3d.visualization.draw_geometries([tgt_keypts])
+
 
     box_list = []
     top_k = np.argsort(src_scores, axis=0)[-show_num:]
@@ -234,3 +243,10 @@ if __name__ == '__main__':
     open3d.geometry.PointCloud.estimate_normals(src_pcd)
     src_pcd.paint_uniform_color([1, 0.706, 0])
     open3d.visualization.draw_geometries([src_pcd] + box_list)
+    
+    # visual feature
+    Linear = nn.Linear(32, 3)
+    feat_3d = Linear(torch.tensor(src_data["features"]).float())
+    feat_3d = normal(feat_3d)
+    src_keypts.colors = open3d.utility.Vector3dVector(feat_3d.detach().numpy())
+    open3d.visualization.draw_geometries([src_keypts])
