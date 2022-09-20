@@ -75,3 +75,6 @@ python demo.py
 
 ### 5. keypts_tgt
 ![keypts_tgt](demo_pic/keypts_tgt.png)
+
+### 6. change the feature dimention to 3, then visual feature, the left is src_feat and the right is tgt_feat
+![src_feat](demo_pic/src_feat.png)![tgt_feat](demo_pic/tgt_feat.png)
