@@ -301,7 +301,7 @@ if __name__ == '__main__':
     # o3d.visualization.draw_geometries_with_vertex_selection([src_pcd])
 
     # Visualization of Feature
-    print("5th: Visualize the detected keypts on src_pcd by t-SNE")
+    print("5th: Visualize features on src_pcd by t-SNE")
     vis_src_pcd = o3d.geometry.PointCloud()
     vis_src_pcd.points = o3d.utility.Vector3dVector(src_data["keypts"])
     o3d.geometry.PointCloud.estimate_normals(vis_src_pcd)
@@ -324,7 +324,7 @@ if __name__ == '__main__':
     # o3d.visualization.draw_geometries_with_vertex_selection([tgt_pcd])
 
     # Visualization of Feature
-    print("7th: Visualize the detected keypts on tgt_pcd by t-SNE")
+    print("7th: Visualize features on tgt_pcd by t-SNE")
     vis_tgt_pcd = o3d.geometry.PointCloud()
     vis_tgt_pcd.points = o3d.utility.Vector3dVector(tgt_data["keypts"])
     o3d.geometry.PointCloud.estimate_normals(vis_tgt_pcd)
